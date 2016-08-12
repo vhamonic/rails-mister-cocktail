@@ -1,0 +1,18 @@
+<h1>Ingredients list</h1>
+<ul>
+  <% @ingredients.each do |ingredient| %>
+  <li><%= ingredient.name %> <%= link_to "&times;" .html_safe, ingredient_path(ingredient),
+      method: :delete,
+      data: { confirm: "Are you sure? #{ingredient.cocktails_linked}"} %></li>
+  <% end %>
+</ul>
+
+<h1>Add an ingredient</h1>
+<%= simple_form_for [@ingredient] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.button :submit, class: "btn btn-success" %>
+<% end %>
+<br />
+<p><%= link_to "Back to cocktails list", cocktails_path %></p>
+

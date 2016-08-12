@@ -1,0 +1,17 @@
+<h1>Add a cocktail</h1>
+<p> Existing cocktails</p>
+  <ul>
+  <% @cocktails.each do |cocktail| %>
+  <li><%= cocktail.name%></li>
+  <% end %>
+  </ul>
+  <h2>Which cocktail would you like to add ?</h2>
+  <div>
+    <%= simple_form_for [@cocktail] do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+<br/>
+<p><%= link_to "Back to homepage", cocktails_path %></p>

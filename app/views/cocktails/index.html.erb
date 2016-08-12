@@ -1,0 +1,16 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path 'background.jpg' %>);">
+
+  <div class="banner-content">
+    <h1>Mister Cocktails</h1>
+    <p>Best cocktails recipes in one place !</p>
+  </div>
+</div>
+
+<h2>Cocktails list</h1>
+<ul>
+  <% @cocktails.each do |cocktail| %>
+  <li><%= link_to cocktail.name, cocktail_path(cocktail)%></li>
+  <% end %>
+</ul>
+
+

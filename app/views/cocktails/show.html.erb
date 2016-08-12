@@ -1,0 +1,17 @@
+<h1><%= @cocktail.name %></h1>
+<ul>
+  <% @cocktail.doses.each do |dose| %>
+  <li><%= dose.description %> (<%=dose.ingredient.name%>)</li>
+  <% end %>
+</ul>
+
+<h1>Add a dose</h1>
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :description %>
+  <%= f.input :ingredient_id, collection: Ingredient.all %>
+  <%= f.button :submit %>
+<% end %>
+<!-- <p><%= link_to "Update recipe", new_cocktail_dose_path(@cocktail) %></p> -->
+<p><%= link_to "Delete recipe", cocktail_path(@cocktail), method: :delete %></p>
+<p><%= link_to "Back to cocktails list", cocktails_path %></p>
